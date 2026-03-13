@@ -34,6 +34,7 @@ jobs:
           script: |
             set -euo pipefail
             cd ~/message-server
+            echo '${{ secrets.POSTGRES_PASSWORD }}'
             docker build --pull -t message-server:latest .
             docker stop message-server || true
             docker rm message-server || true
